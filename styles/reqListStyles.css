@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;;
+}
+
+main {
+    width: 70%;
+}
+
+.menu-categories {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-categories__item {
+    padding: 10px;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+.req-list {
+    width: 100%;
+    background-color: blue;
+
+    padding: 5px;
+}
+
+.res-list__item {
+    position: relative;
+    background-color: blueviolet;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+.res-list__item__status {
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(0, -50%);
+
+    border: 1px solid black;
+    border-radius: 70%;
+}
