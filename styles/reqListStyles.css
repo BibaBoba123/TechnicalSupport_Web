@@ -29,9 +29,14 @@ main {
     background-color: #c5c8d3;
     border-radius: 10px;
     
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
 
     font-size: 15px;
+}
+
+.menu-categories__item_active {
+    background-color: #a5a5aa;
+    color: #f5f5f8;
 }
 
 .menu-categories__item:hover {
@@ -53,7 +58,7 @@ main {
     padding: 20px;
     margin-bottom: 5px;
 
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
 }
 
 .res-list__item:hover {

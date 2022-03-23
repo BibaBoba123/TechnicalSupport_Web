@@ -1,15 +1,49 @@
-function createCategoriesItem(nameCategory) {
+function makeNonActiveMenu() {
+  const categoriesArr = document.querySelectorAll('.menu-categories__item_active');
+  for (let el of categoriesArr) {
+    el.classList.toggle('menu-categories__item_active');
+  }
+}
+
+function clickMenuCategoriesItem(event, reqListObj) {
+  const recListDiv = document.querySelector('.req-list');
+  recListDiv.innerHTML = '';
+
+  if (event.target.innerHTML == 'Все') {
+    for (let k in reqListObj) {
+      recListDiv.append(reqListObj[k]['block']);
+    }
+  } else {
+    for (let k in reqListObj) {
+      if (reqListObj[k]['category'] === event.target.innerHTML) {
+        recListDiv.append(reqListObj[k]['block']);
+      }
+    }
+  }
+  
+  makeNonActiveMenu();
+  event.target.classList.toggle('menu-categories__item_active');
+}
+
+function createCategoriesItem(nameCategory, reqListObj) {
   const card = document.createElement('div');
   card.innerHTML = nameCategory;
   card.classList = 'menu-categories__item';
 
+  card.addEventListener('click', (e) => clickMenuCategoriesItem(e, reqListObj));
+  
+  if (nameCategory === 'Все') {
+    card.classList.toggle('menu-categories__item_active');
+  }
   return card;
 }
 
-function createMenuCategories(categories) {
+function createMenuCategories(categories, reqListObj) {
   const menu = document.querySelector('.menu-categories');
+  menu.append(createCategoriesItem('Все', reqListObj));
+  
   for (let c in categories) {
-      menu.append(createCategoriesItem(categories[c]['name']));
+      menu.append(createCategoriesItem(categories[c]['name'], reqListObj));
   }
 }
 
@@ -34,6 +68,7 @@ function createReqListItem(data) {
 function createReqList(reqList) {
   const recListDiv = document.querySelector('.req-list');
   const reqListItems = [];
+
   for (let r in reqList) {
     const itemObj = {};
     itemObj['category'] = reqList[r]['category'];
@@ -46,18 +81,12 @@ function createReqList(reqList) {
 
     reqListItems.push(itemObj);
   }
+
+  return reqListItems;
 }
 
 const urlCategories = 'https://raw.githubusercontent.com/BibaBoba123/TechnicalSupport_Web/main/json/categories.json';
 const urlApplications = 'https://raw.githubusercontent.com/BibaBoba123/TechnicalSupport_Web/main/json/applications.json';
-
-fetch(urlCategories)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(jsonResponse) {
-    createMenuCategories(jsonResponse['categories']);
-  });
 
 
 fetch(urlApplications)
@@ -65,5 +94,13 @@ fetch(urlApplications)
     return response.json();
   })
   .then(function(jsonResponse) {
-    createReqList(jsonResponse['applications']);
+    const reqListObj = createReqList(jsonResponse['applications']);
+
+    fetch(urlCategories)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(jsonResponse) {
+        createMenuCategories(jsonResponse['categories'], reqListObj);
+      });
   });
