@@ -20,7 +20,7 @@ function clickMenuCategoriesItem(event, reqListObj) {
       }
     }
   }
-  
+
   makeNonActiveMenu();
   event.target.classList.toggle('menu-categories__item_active');
 }
@@ -85,6 +85,16 @@ function createReqList(reqList) {
   return reqListItems;
 }
 
+function setInfoAboutUser(login, name, post) {
+  const loginUser = document.querySelector('.about_user__login');
+  const nameUser = document.querySelector('.about_user__name');
+  const postUser = document.querySelector('.about_user__post');
+
+  loginUser.innerHTML = 'semenov@kubsu.edu.ru';
+  nameUser.innerHTML = 'Семенов Семен Семенович';
+  postUser.innerHTML = 'Программист';
+}
+
 const urlCategories = 'https://raw.githubusercontent.com/BibaBoba123/TechnicalSupport_Web/main/json/categories.json';
 const urlApplications = 'https://raw.githubusercontent.com/BibaBoba123/TechnicalSupport_Web/main/json/applications.json';
 
@@ -104,3 +114,6 @@ fetch(urlApplications)
         createMenuCategories(jsonResponse['categories'], reqListObj);
       });
   });
+
+setInfoAboutUser('semenov@kubsu.edu.ru', 'Семенов Семен Семенович', 'Программист');
+  
