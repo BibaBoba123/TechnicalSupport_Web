@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/registration_styles.css">
+    <title>Регистрация</title>
+</head>
+<body>
+    <div class="registration-container">
+        <form id="registration-form" action="" class="registration-form registration-container__form">
+            <input id="registration-user-id" class="registration-form__input" type="text" placeholder="Код предприятия">
+            <input id="registration-user-login" class="registration-form__input" type="text" placeholder="Логин">
+            <input id="registration-user-password" class="registration-form__input" type="password" placeholder="Пароль">
+            <input id="registration-user-password-repeat" class="registration-form__input" type="password" placeholder="Повторите пароль">
+            <input id="registration-user-name" class="registration-form__input" type="text" placeholder="ФИО">
+            <input id="registration-user-position" class="registration-form__input" type="text" placeholder="Должность">
+            <button id="registration-submit" class="registration-form__button" type="submit">Зарегистрироваться</button>
+            <span id="registration-form-error-info" class="registration-form_error-info registration-form_error-info_invisible"></span>
+        </form>
+    </div>
+
+    <script src="../scripts/registration_script.js"></script>
+</body>
+</html>
