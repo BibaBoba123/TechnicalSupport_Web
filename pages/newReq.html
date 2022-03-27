@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Новая заявка</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../styles/newReq.css">    
+</head>
+<body>
+    <div class="header">
+        <div class="user-info header__user-info">
+            <div class="user-info__frame">
+                <span class="user-info__label">Логин: </span>
+                <span class="user-login user-info__text"></span>
+            </div>
+            <div class="user-info__frame">
+                <span class="user-info__label">Имя пользователя: </span>
+                <span class="user-name user-info__text"></span>
+            </div>
+            <div class="user-info__frame">
+                <span class="user-info__label">Должность: </span>
+                <span class="user-post user-info__text"></span>
+            </div>
+        </div>
+    </div>
+    <form class="new-request-form">
+        <div class="new-request-form-element">
+            <div class="new-request-form-element__header">Тема заявки</div>
+            <input class="new-request-form-element__input"/>
+        </div>
+        <div class="new-request-form-element">
+            <div class="new-request-form-element__header">Тип заявки</div>
+            <select class="category-list new-request-form-element__input"></select>
+        </div>
+        <div class="new-request-form-element">
+            <div class="new-request-form-element__header">Текст заявки</div>
+            <textarea class="new-request-form-element__input new-request-form-element__input_width_75"></textarea>
+        </div>
+        <input class="submit-button" type="submit"></button>
+    </form>
+    <script type="text/javascript" src="../scripts/newReq.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+.header__user-info {
+    float: right;
+    padding: 5px;
+}
+
+.new-request-form {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.new-request-form-element {
+    background-color: lightskyblue;
+    border: solid white 2px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.new-request-form-element__header {
+    font-size: large;
+    color: white;
+    font-weight: 700;
+    padding: 5px;
+}
+
+.new-request-form-element__input {
+    font-size: large;
+    border: solid grey 2px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.new-request-form-element__input_width_75 {
+    width: 75%;
+    height: 250px;
+}
+
+.submit-button {
+    font-size: large;
+    border: solid grey 2px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    color: white;
+    background-color: darkviolet;
+}
+
+
+.user-info__label {
+    font-weight: 700;
+}
